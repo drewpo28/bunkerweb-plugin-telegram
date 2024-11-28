@@ -1,0 +1,36 @@
+{
+  "id": "telegram",
+  "name": "Telegram",
+  "description": "Send alerts to a Telegram chat",
+  "version": "1.1",
+  "stream": "yes",
+  "settings": {
+    "USE_TELEGRAM": {
+      "context": "multisite",
+      "default": "no",
+      "help": "Enable sending alerts to a Telegram.",
+      "id": "use-telegram",
+      "label": "Use Telegram",
+      "regex": "^(yes|no)$",
+      "type": "check"
+    },
+    "TELEGRAM_BOT_TOKEN": {
+      "context": "global",
+      "default": "",
+      "help": "The token looks something like 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11.",
+      "id": "telegram-bot-token",
+      "label": "Telegram Bot Token",
+      "regex": "^.*$",
+      "type": "text"
+    },
+    "TELEGRAM_CHAT_ID": {
+      "context": "global",
+      "default": "",
+      "help": "Unique identifier for the target chat or username of the target channel.",
+      "id": "telegram-chat-id",
+      "label": "Telegram Chat Id",
+      "regex": "^.*$",
+      "type": "text"
+    }
+  }
+}
