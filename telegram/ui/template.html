@@ -2,22 +2,14 @@
 
 <div class="core-layout">
   {% if is_used %}
-  <input
-    id="csrf_token"
-    type="hidden"
-    name="csrf_token"
-    value="{{ csrf_token() }}"
-  />
+  <input id="csrf_token" type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
   <!-- info-->
   <div class="core-card">
     <h5 class="core-card-title">INFO</h5>
 
     <div class="core-card-wrap-logo">
-      <img
-        alt="logo"
-        class="core-img-default"
-        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI1MTIiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIiB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcyBpZD0iZGVmczEyIi8+PGcgaWQ9ImczODg1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOTcuMjIwMzQsMCkiPjxyZWN0IGhlaWdodD0iNTEyIiBpZD0icmVjdDI5ODciIHJ4PSI2NCIgcnk9IjY0IiBzdHlsZT0iZmlsbDojNjRhOWRjO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lIiB3aWR0aD0iNTEyIiB4PSItMjk3LjIyMDM0IiB5PSI1LjY4NDM0MTllLTAxNCIvPjxwYXRoIGQ9Ik0gMTI3Ljg4MTAzLDk0LjE5ODA0NSAtMjE4LjQ2NjcsMjI3Ljc4NTA3IGMgLTIzLjYzODc5LDkuNDg0MzMgLTIzLjQ5ODYsMjIuNjY5MDEgLTQuMzA4NzEsMjguNTQ4MTYgbCA4Ni4zODAxNywyNi45NjEwMSAzMy4wNTEwOCwxMDEuMzMyMDcgYyA0LjAxODA0MSwxMS4wOTA3NyAyLjAzNzMyLDE1LjQ4OTUzIDEzLjY4MzczMSwxNS40ODk1MyA4Ljk4Nzg2LDAgMTIuOTc1MDQsLTQuMDk3NzggMTcuOTgwODcsLTguOTg3ODYgMy4xODMzLC0zLjExNTEzIDIyLjA4Mzc4LC0yMS40OTA4NyA0My4xODc1MiwtNDIuMDA5MzYgbCA4OS44NTE1OCw2Ni4zODY0MyBjIDE2LjUzMzksOS4xMjE2MSAyOC40NzIyNyw0LjM5NjE3IDMyLjU4OTM1LC0xNS4zNTU3NyBMIDE1Mi45Mjk0OCwxMjIuMjA5ODcgQyAxNTguOTY4MTIsOTguMDAwMDE1IDE0My42OTk4MSw4Ny4wMTg1NjUgMTI3Ljg4MTAzLDk0LjE5ODA0NSB6IE0gLTEyMi44Mzg4NSwyNzcuMDk5OTggNzEuODYyNTMxLDE1NC4yNjE2IGMgOS43MTk2OSwtNS44OTQ1OCAxOC42MzE2NiwtMi43MjU0MiAxMS4zMTQ1NSwzLjc2OTgxIGwgLTE2Ni43MTUyOCwxNTAuNDE5MzIgLTYuNDkxMzYsNjkuMjM1MzMgLTMyLjgwOTI5MSwtMTAwLjU4NjA4IHoiIGlkPSJwYXRoOSIgc3R5bGU9ImZpbGw6I2ZmZmZmZiIvPjwvZz48L3N2Zz4="
-      />
+      <img alt="logo" class="core-img-default"
+        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI1MTIiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIiB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcyBpZD0iZGVmczEyIi8+PGcgaWQ9ImczODg1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOTcuMjIwMzQsMCkiPjxyZWN0IGhlaWdodD0iNTEyIiBpZD0icmVjdDI5ODciIHJ4PSI2NCIgcnk9IjY0IiBzdHlsZT0iZmlsbDojNjRhOWRjO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lIiB3aWR0aD0iNTEyIiB4PSItMjk3LjIyMDM0IiB5PSI1LjY4NDM0MTllLTAxNCIvPjxwYXRoIGQ9Ik0gMTI3Ljg4MTAzLDk0LjE5ODA0NSAtMjE4LjQ2NjcsMjI3Ljc4NTA3IGMgLTIzLjYzODc5LDkuNDg0MzMgLTIzLjQ5ODYsMjIuNjY5MDEgLTQuMzA4NzEsMjguNTQ4MTYgbCA4Ni4zODAxNywyNi45NjEwMSAzMy4wNTEwOCwxMDEuMzMyMDcgYyA0LjAxODA0MSwxMS4wOTA3NyAyLjAzNzMyLDE1LjQ4OTUzIDEzLjY4MzczMSwxNS40ODk1MyA4Ljk4Nzg2LDAgMTIuOTc1MDQsLTQuMDk3NzggMTcuOTgwODcsLTguOTg3ODYgMy4xODMzLC0zLjExNTEzIDIyLjA4Mzc4LC0yMS40OTA4NyA0My4xODc1MiwtNDIuMDA5MzYgbCA4OS44NTE1OCw2Ni4zODY0MyBjIDE2LjUzMzksOS4xMjE2MSAyOC40NzIyNyw0LjM5NjE3IDMyLjU4OTM1LC0xNS4zNTU3NyBMIDE1Mi45Mjk0OCwxMjIuMjA5ODcgQyAxNTguOTY4MTIsOTguMDAwMDE1IDE0My42OTk4MSw4Ny4wMTg1NjUgMTI3Ljg4MTAzLDk0LjE5ODA0NSB6IE0gLTEyMi44Mzg4NSwyNzcuMDk5OTggNzEuODYyNTMxLDE1NC4yNjE2IGMgOS43MTk2OSwtNS44OTQ1OCAxOC42MzE2NiwtMi43MjU0MiAxMS4zMTQ1NSwzLjc2OTgxIGwgLTE2Ni43MTUyOCwxNTAuNDE5MzIgLTYuNDkxMzYsNjkuMjM1MzMgLTMyLjgwOTI5MSwtMTAwLjU4NjA4IHoiIGlkPSJwYXRoOSIgc3R5bGU9ImZpbGw6I2ZmZmZmZiIvPjwvZz48L3N2Zz4=" />
       <p data-info class="core-card-text">{{ plugin.get('description') }}</p>
     </div>
     <p class="core-card-text-doc">{{ read_doc_text|safe }}</p>
@@ -34,32 +26,29 @@
 
     <div class="core-card-test-container">
       <button type="button" class="core-card-test-btn" data-ping>
-        Test Telegram Message
+        Test Message
       </button>
     </div>
 
     <hr class="core-separator" />
 
     <div class="core-card-test-status-container">
-      <svg
-        data-status-svg
-        class="core-card-test-status-svg info"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg data-status-svg class="core-card-test-status-svg info" viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="50" />
       </svg>
       <p data-status-text class="core-card-text">Unknown</p>
     </div>
   </div>
 
- <script nonce="{{script_nonce}}">
+  <script nonce="{{script_nonce}}">
     // When click to ping button
     const pingBtn = document.querySelector("[data-ping]");
     const statusSvg = document.querySelector("[data-status-svg]");
     const statusText = document.querySelector("[data-status-text]");
 
-    pingBtn.addEventListener("click", (e) => {                                                                                                         new Ping(
+    pingBtn.addEventListener("click", (e) => {
+      new Ping(
         `${location.origin}${location.pathname}?ping=true`,
         pingBtn,
         statusText,
@@ -74,19 +63,10 @@
       <h5 class="core-card-title">Plugin deactivated</h5>
       <!-- icon -->
       <div role="img" class="core-card-svg-container">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="core-card-deactivated-svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="core-card-deactivated-svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
         </svg>
       </div>
       <!-- end icon -->

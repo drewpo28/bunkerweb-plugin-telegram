@@ -2,7 +2,7 @@
   "id": "telegram",
   "name": "Telegram",
   "description": "Send alerts to a Telegram chat",
-  "version": "1.1",
+  "version": "1.2",
   "stream": "yes",
   "settings": {
     "USE_TELEGRAM": {
@@ -19,7 +19,7 @@
       "default": "",
       "help": "The token looks something like 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11.",
       "id": "telegram-bot-token",
-      "label": "Telegram Bot Token",
+      "label": "Bot Token",
       "regex": "^.*$",
       "type": "text"
     },
@@ -28,7 +28,34 @@
       "default": "",
       "help": "Unique identifier for the target chat or username of the target channel.",
       "id": "telegram-chat-id",
-      "label": "Telegram Chat Id",
+      "label": "Chat Id",
+      "regex": "^.*$",
+      "type": "text"
+    },
+    "TELEGRAM_SEND_SILENTLY": {
+      "context": "global",
+      "default": "",
+      "help": "Sends the message silently. Users will receive a notification with no sound.",
+      "id": "telegram-send_silently",
+      "label": "Send Alert Silently",
+      "regex": "^(yes|no)$",
+      "type": "check"
+    },
+    "TELEGRAM_THRESHOLD": {
+      "context": "global",
+      "default": "10",
+      "help": "Maximum number of silent alerts",
+      "id": "telegram-threshold",
+      "label": "Silent alerts threshold",
+      "regex": "^.*$",
+      "type": "text"
+    },
+    "TELEGRAM_COUNT_TIME": {
+      "context": "global",
+      "default": "3",
+      "help": "Period of time during which we count silent alerts",
+      "id": "telegram-count-time",
+      "label": "Silent alerts period of time (in sec)",
       "regex": "^.*$",
       "type": "text"
     }
