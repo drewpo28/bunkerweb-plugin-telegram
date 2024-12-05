@@ -45,6 +45,21 @@ local urldecode = function(url)
     return url
 end
 
+function replace_ip_with_link(text)
+    -- Define a function to create the hyperlink
+    local function create_link(ip)
+        return string.format('IP https://ipinfo.io/%s', ip)
+    end
+
+    -- Pattern to match IPv4 addresses
+    local ip_pattern = "IP (%d+%.%d+%.%d+%.%d+)"
+
+    -- Replace IP addresses with hyperlinks
+    local result = text:gsub(ip_pattern, create_link)
+
+    return result
+end
+
 function telegram:initialize(ctx) plugin.initialize(self, "telegram", ctx) end
 
 function telegram:init()
@@ -66,7 +81,7 @@ function telegram:get_api_telegram_url(data)
     if threshold <= self:getCountAlert() + 1 then silently = "no" end
 
     local url = apiurl_template:gsub("{{bot_token}}", bot_token):gsub(
-                    "{{chat_id}}", chat_id) .. urlencode(data)
+                    "{{chat_id}}", chat_id) .. urlencode(replace_ip_with_link(data))
     if (silently == "yes") then url = url .. "&disable_notification=true" end
 
     return url
