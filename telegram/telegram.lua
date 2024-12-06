@@ -45,6 +45,17 @@ local urldecode = function(url)
     return url
 end
 
+function extract_ip(text)
+    -- Pattern to match an IPv4 address
+    local ip_pattern = "(%d+%.%d+%.%d+%.%d+)"
+
+    -- Find the first match of the pattern in the text
+    local ip_address = text:match(ip_pattern)
+
+    -- Return the found IP address or nil if not found
+    return ip_address
+end
+
 function replace_ip_with_link(text)
     -- Define a function to create the hyperlink
     local function create_link(ip)
@@ -80,8 +91,22 @@ function telegram:get_api_telegram_url(data)
 
     if threshold <= self:getCountAlert() + 1 then silently = "no" end
 
+    local ip = extract_ip(data)
+
+    if ip ~= nil then
+        self.logger:log(ERR, "IP: " .. ip)
+    else
+        self.logger:log(ERR, "IP: nill")
+    end
+
+    if ip ~= nil and ip ~= "" then
+        data = "Check an IP via abuseipdb https://www.abuseipdb.com/check/" ..
+                   ip .. "\n\n" .. data
+    end
+
     local url = apiurl_template:gsub("{{bot_token}}", bot_token):gsub(
-                    "{{chat_id}}", chat_id) .. urlencode(replace_ip_with_link(data))
+                    "{{chat_id}}", chat_id) ..
+                    urlencode(replace_ip_with_link(data))
     if (silently == "yes") then url = url .. "&disable_notification=true" end
 
     return url
@@ -219,7 +244,9 @@ function telegram:api()
         end
 
         -- Send test data to telegram
-        local data = {content = "```Test message from bunkerweb```"}
+        local data = {
+            content = "```Test message from bunkerweb``` \n IP 127.0.0.1"
+        }
         -- Send request
         local httpc
         httpc, err = http_new()
