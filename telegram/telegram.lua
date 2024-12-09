@@ -100,8 +100,27 @@ function telegram:get_api_telegram_url(data)
     end
 
     if ip ~= nil and ip ~= "" then
-        data = "Check an IP via abuseipdb https://www.abuseipdb.com/check/" ..
-                   ip .. "\n\n" .. data
+        local use_crowdsec = self.variables["TELEGRAM_USE_CROWDSEC"]
+        local use_abuseipdb = self.variables["TELEGRAM_USE_ABUSEIPDB"]
+        local use_virustotal = self.variables["TELEGRAM_USE_WEBVIRUSTOTAL"]
+
+        if use_crowdsec == "yes" then
+            data = "Check an IP via CrowdSec https://app.crowdsec.net/cti/" ..
+                       ip .. "\n\n" .. data
+        end
+
+        if use_virustotal == "yes" then
+            data =
+                "Check an IP via VirusTotal https://www.virustotal.com/gui/ip-address/" ..
+                    ip .. "\n\n" .. data
+        end
+
+        if use_abuseipdb == "yes" then
+            data =
+                "Check an IP via abuseipdb https://www.abuseipdb.com/check/" ..
+                    ip .. "\n\n" .. data
+        end
+
     end
 
     local url = apiurl_template:gsub("{{bot_token}}", bot_token):gsub(
@@ -231,6 +250,7 @@ end
 function telegram:api()
     if self.ctx.bw.uri == "/telegram/ping" and self.ctx.bw.request_method ==
         "POST" then
+        self.logger:log(ERR, "[TEST] [API]")
 
         -- Check telegram connection
         local check, err = has_variable("USE_TELEGRAM", "yes")
@@ -247,14 +267,16 @@ function telegram:api()
         local data = {
             content = "```Test message from bunkerweb``` \n IP 127.0.0.1"
         }
+        self.logger:log(ERR, "[TEST] [DATA]: " .. data.content)
         -- Send request
         local httpc
         httpc, err = http_new()
         if not httpc then
             self.logger:log(ERR, "can't instantiate http object : " .. err)
         end
-
+        self.logger:log(ERR, "[TEST] [DATA]: " .. data.content)
         local url = self:get_api_telegram_url(data.content)
+        self.logger:log(ERR, "[TEST] [URL]: " .. url)
         local res, err_http = httpc:request_uri(url, {method = "GET"})
         httpc:close()
         if not res then
